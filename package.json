@@ -1,0 +1,24 @@
+{
+  "name": "seletiva-cabense-2025",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Servidor Express para Seletiva Cabense 2025",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "resend": "^4.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

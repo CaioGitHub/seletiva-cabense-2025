@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Seletiva Cabense 2025</title>
+</head>
+
+<body>
+    <header data-aos="fade-down">
+        <h1>Seletiva Cabense 2025</h1>
+        <p>Chegou a sua hora de fazer parte do nosso time!</p>
+    </header>
+
+    <section class="hero" data-aos="zoom-in">
+        <h2>Mostre seu talento para o Cabense!</h2>
+        <p>Inscreva-se na nossa seletiva oficial e tenha a chance de jogar pelo nosso clube em 2025!</p>
+        <button class="btn-inscrever"
+            onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'});">
+            Garanta Sua Vaga!
+        </button>
+    </section>
+
+    <section class="info">
+        <ul>
+            <li>📅 Data: 10 e 11 de janeiro de 2025</li>
+            <li>📍 Local: Estádio do Cabense</li>
+            <li>🎯 Categorias: Sub-15, Sub-17, Sub-20</li>
+            <li>🏆 Benefícios: Treinamento profissional e vitrine para olheiros</li>
+        </ul>
+    </section>
+
+    <!-- Seção Como se Inscrever -->
+    <section class="registration-section">
+        <h2 class="section-title">Como se inscrever</h2>
+
+        <div class="instruction-image">
+            <img src="assets/images/tutorial-cabense.png" alt="Passos para se inscrever" class="responsive-image">
+        </div>
+
+        <div class="download-section">
+            <a href="assets/files/seletiva-cabense-formulario.docx" download class="download-button">
+                📄 Baixar Formulário de Inscrição
+            </a>
+        </div>
+    </section>
+
+    <section class="formulario" id="formulario">
+        <h2>Inscreva-se Agora</h2>
+
+        <form id="my-form" action="http://localhost:3000/enviar-formulario" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Nome completo" required>
+            <input type="email" name="email" placeholder="Seu email" required>
+
+            <label class="custom-file-upload">
+                📎 Escolher Arquivo
+                <input type="file" name="file" required style="display: none;">
+            </label>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div id="msg" style="margin-top: 20px;"></div>
+    </section>
+
+
+    <footer>
+        &copy; 2025 Cabense Futebol Clube | Siga-nos nas redes sociais!
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        const form = document.getElementById('my-form');
+        const msg = document.getElementById('msg');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            try {
+                const response = await fetch('/enviar-formulario', {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+
+
+                if (response.ok) {
+                    msg.innerText = '✅ Inscrição enviada com sucesso!';
+                    msg.style.color = 'green';
+                    form.reset();
+                } else {
+                    throw new Error('Status ' + response.status);
+                }
+            } catch (err) {
+                msg.innerText = '❌ Erro ao enviar: ' + err.message;
+                msg.style.color = 'red';
+            }
+        });
+    </script>
+
+
+    <style>
+        .custom-file-upload {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+</body>
+
+</html>
