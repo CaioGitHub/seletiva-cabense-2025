@@ -104,4 +104,4 @@ Este projeto está licenciado sob a licença MIT.
 
 ---
 
-Desenvolvido com ❤️ por Caio Victor.
+Desenvolvido por Caio Victor.
