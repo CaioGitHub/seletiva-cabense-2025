@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Seletiva Cabense 2025</title>
@@ -11,7 +12,9 @@
 
 <body>
     <header data-aos="fade-down">
-        <h1>Seletiva Cabense 2025</h1>
+        <img src="assets/images/escudo-juventude.png" alt="Escudo Cabense" class="header-logo">
+        <h1>ASSOCIAÇÃO DESPORTIVA CABENSE</h1>
+        <h1>Seletiva 2025</h1>
         <p>Chegou a sua hora de fazer parte do nosso time!</p>
     </header>
 
@@ -25,15 +28,40 @@
     </section>
 
     <section class="info">
-        <ul>
-            <li>📅 Data: 10 e 11 de janeiro de 2025</li>
-            <li>📍 Local: Estádio do Cabense</li>
-            <li>🎯 Categorias: Sub-15, Sub-17, Sub-20</li>
-            <li>🏆 Benefícios: Treinamento profissional e vitrine para olheiros</li>
+        <h2>Seletiva de Futebol</h2>
+
+        <div class="info-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span><strong>Data:</strong> 25/05 - 08h</span>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><strong>Local:</strong> ESTÁDIO GILENO DE CARLI</span>
+        </div>
+
+        <p class="info-description">
+            A hora de mostrar seu talento chegou! Estamos iniciando a nova fase do nosso futebol de base e você pode
+            fazer parte disso.
+        </p>
+
+        <h3>O que levar:</h3>
+        <ul class="info-list">
+            <li>Documento de identificação</li>
+            <li>Calção branco</li>
+            <li>Meiões e camisa azul</li>
+            <li>Menores de idade acompanhados dos pais</li>
+            <li>02 sacolas plásticas</li>
+            <li>01 toalha de rosto</li>
+            <li>01 squeeze ou garrafinha de hidratação</li>
         </ul>
+
+        <div class="info-bottom">
+            <p><strong>Público-alvo:</strong> Nascidos entre 2005 e 2009</p>
+            <p><strong>Valor da inscrição:</strong> R$ 20,00</p>
+        </div>
     </section>
 
-    <!-- Seção Como se Inscrever -->
     <section class="registration-section">
         <h2 class="section-title">Como se inscrever</h2>
 
@@ -51,74 +79,45 @@
     <section class="formulario" id="formulario">
         <h2>Inscreva-se Agora</h2>
 
-        <form id="my-form" action="http://localhost:3000/enviar-formulario" method="POST" enctype="multipart/form-data">
+        <form id="my-form" action="/api/enviar-formulario" method="POST" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="Nome completo" required>
             <input type="email" name="email" placeholder="Seu email" required>
 
             <label class="custom-file-upload">
-                📎 Escolher Arquivo
-                <input type="file" name="file" required style="display: none;">
+                <span id="file-name">Escolher Arquivo</span>
+                <input type="file" name="file" id="file-input" style="display: none;">
             </label>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" class="btn-inscrever">Enviar inscrição</button>
         </form>
 
         <div id="msg" style="margin-top: 20px;"></div>
     </section>
 
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p class="footer-text">&copy; 2025 Cabense Futebol Clube</p>
 
-    <footer>
-        &copy; 2025 Cabense Futebol Clube | Siga-nos nas redes sociais!
+            <div class="social-links">
+                <a href="https://facebook.com/cabenseoficial" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/cabenseoficial" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/adcabense" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+
+            <div class="footer-logos">
+                <img src="assets/images/logo-juventude.png" alt="Juventude, Esportes e Lazer" class="footer-logo">
+            </div>
+        </div>
     </footer>
 
-    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <script>
-        const form = document.getElementById('my-form');
-        const msg = document.getElementById('msg');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            try {
-                const response = await fetch('/enviar-formulario', {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-
-
-                if (response.ok) {
-                    msg.innerText = '✅ Inscrição enviada com sucesso!';
-                    msg.style.color = 'green';
-                    form.reset();
-                } else {
-                    throw new Error('Status ' + response.status);
-                }
-            } catch (err) {
-                msg.innerText = '❌ Erro ao enviar: ' + err.message;
-                msg.style.color = 'red';
-            }
-        });
-    </script>
-
-
-    <style>
-        .custom-file-upload {
-            display: inline-block;
-            cursor: pointer;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .custom-file-upload:hover {
-            background-color: #0056b3;
-        }
-    </style>
 
 </body>
 
