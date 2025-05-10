@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const fileInput = document.getElementById('file-input');
   const fileName = document.getElementById('file-name');
 
+  const copyButton = document.getElementById('copy-cnpj');
+
   fileInput.addEventListener('change', () => {
     if (fileInput.files.length > 0) {
       fileName.textContent = fileInput.files[0].name;
@@ -42,4 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
       msg.style.color = 'red';
     }
   });
+
+  if (copyButton) {
+    copyButton.addEventListener('click', () => {
+      const cnpj = '01.615.265/0001-67';
+      navigator.clipboard.writeText(cnpj)
+        .then(() => {
+          copyButton.innerText = '✅ Pix CNPJ Copiado!';
+          setTimeout(() => {
+            copyButton.innerText = '📋 Copiar pix CNPJ: 01.615.265/0001-67';
+          }, 2000);
+        })
+        .catch(() => {
+          alert('Erro ao copiar o CNPJ. Copie manualmente.');
+        });
+    });
+  }
 });

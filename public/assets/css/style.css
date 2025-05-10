@@ -353,3 +353,36 @@ select {
 .custom-file-upload:hover {
     background-color: #0056b3;
 }
+
+.copy-section {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.copy-button {
+    background-color: #003DA5;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+        transform 0.1s ease;
+    display: inline-block;
+}
+
+.copy-button:hover {
+    background-color: #002B7F;
+    transform: translateY(-2px);
+}
+
+.copy-button:active {
+    transform: translateY(0);
+}
+
+.copy-button:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
