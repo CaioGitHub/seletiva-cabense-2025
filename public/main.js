@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicia animações
   AOS.init({ duration: 800, once: true });
 
   const form = document.getElementById('my-form');
@@ -7,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const fileInput = document.getElementById('file-input');
   const fileName = document.getElementById('file-name');
 
-  // Atualizar o nome do arquivo selecionado
   fileInput.addEventListener('change', () => {
     if (fileInput.files.length > 0) {
       fileName.textContent = fileInput.files[0].name;
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Lidar com o envio do formulário
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -25,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       msg.style.color = 'red';
       return;
     }
-    
+
     try {
       const response = await fetch('/api/enviar-formulario', {
         method: 'POST',
@@ -36,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         msg.innerText = '✅ Inscrição enviada com sucesso!';
         msg.style.color = 'green';
         form.reset();
-        fileName.textContent = "Escolher Arquivo"; // Resetar nome do botão
+        fileName.textContent = "Escolher Arquivo";
       } else {
         throw new Error('Status ' + response.status);
       }
