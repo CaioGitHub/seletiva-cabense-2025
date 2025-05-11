@@ -48,7 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
         fileName.textContent = "Escolher Formulário";
         proofName.textContent = "Escolher Comprovante";
       } else {
-        throw new Error('Status ' + response.status);
+        if (response.status === 413) {
+          msg.innerText = '❌ Os arquivos são muito grandes! Envie arquivos menores que 4MB.';
+        } else {
+          throw new Error('Status ' + response.status);
+        }
+        msg.style.color = 'red';
       }
     } catch (err) {
       msg.innerText = '❌ Erro ao enviar: ' + err.message;
