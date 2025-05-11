@@ -44,21 +44,6 @@ header p {
     margin-bottom: 2rem;
 }
 
-.btn-inscrever {
-    background-color: #003366;
-    color: white;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-inscrever:hover {
-    background-color: #0055aa;
-}
-
 .info {
     background: #f9f9f9;
     padding: 2rem;
@@ -132,6 +117,73 @@ header p {
     color: #333;
 }
 
+input,
+select,
+.copy-button,
+.custom-file-upload,
+.download-button,
+.btn-inscrever,
+.btn-submit {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="text"],
+input[type="email"] {
+    border: 1px solid #ccc;
+}
+
+.copy-button,
+.custom-file-upload,
+.download-button,
+.btn-inscrever,
+.btn-submit {
+    border: none;
+    background-color: #0055aa;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover,
+.custom-file-upload:hover,
+.download-button:hover,
+.btn-inscrever:hover,
+.btn-submit:hover {
+    background-color: #003f80;
+}
+
+.btn-submit {
+    background-color: #003366;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-submit:hover {
+    background-color: #002244;
+}
+
+.helper-text {
+    font-size: 0.85rem;
+    color: #888;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
 .formulario {
     padding: 3rem 1rem;
     text-align: center;
@@ -142,15 +194,34 @@ form {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
 }
 
-input,
-select {
-    margin: 0.5rem 0;
-    padding: 1rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+.registration-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #003DA5;
+    margin-bottom: 30px;
+}
+
+.instruction-image {
+    margin-bottom: 30px;
+}
+
+.responsive-image {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    display: block;
 }
 
 .site-footer {
@@ -185,7 +256,6 @@ select {
     font-size: 1.2rem;
     color: white;
     transition: color 0.3s;
-    flex: 1 1 200px;
 }
 
 .social-links a:hover {
@@ -208,7 +278,6 @@ select {
     object-fit: contain;
 }
 
-
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -222,7 +291,6 @@ select {
         flex: 0 1 auto;
         width: 100%;
         text-align: center;
-        margin: 0;
     }
 
     .site-footer {
@@ -253,136 +321,7 @@ select {
     }
 }
 
-.btn-inscrever {
+.btn-inscrever,
+.btn-submit {
     animation: pulse 2s infinite;
-}
-
-.registration-section {
-    background-color: #f9f9f9;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #003DA5;
-    margin-bottom: 30px;
-}
-
-.instruction-image {
-    margin-bottom: 30px;
-}
-
-.responsive-image {
-    max-width: 600px;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    margin: 0 auto;
-    display: block;
-}
-
-.download-section {
-    margin-top: 20px;
-}
-
-.download-button {
-    background-color: #003DA5;
-    color: #ffffff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-.download-button:hover {
-    background-color: #002B7F;
-}
-
-.file-input-wrapper {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    background-color: #003DA5;
-    color: #ffffff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 10px 0;
-}
-
-.file-input-wrapper input[type="file"] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: none;
-}
-
-.file-input-label {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    display: block;
-    font-weight: bold;
-    font-size: 16px;
-    color: #0033A0;
-}
-
-.custom-file-upload {
-    display: inline-block;
-    cursor: pointer;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.custom-file-upload:hover {
-    background-color: #0056b3;
-}
-
-.copy-section {
-    margin: 1.5rem 0;
-    text-align: center;
-}
-
-.copy-button {
-    background-color: #003DA5;
-    color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease,
-        transform 0.1s ease;
-    display: inline-block;
-}
-
-.copy-button:hover {
-    background-color: #002B7F;
-    transform: translateY(-2px);
-}
-
-.copy-button:active {
-    transform: translateY(0);
-}
-
-.copy-button:focus {
-    outline: 2px solid #ffffff;
-    outline-offset: 2px;
 }

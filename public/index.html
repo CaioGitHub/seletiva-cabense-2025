@@ -1,129 +1,223 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link
+            rel="icon"
+            href="assets/images/escudo-juventude.png"
+            type="image/png"
+        />
+        <title>Seletiva Cabense 2025</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" href="assets/images/escudo-juventude.png" type="image/png">
-    <title>Seletiva Cabense 2025</title>
-</head>
+    <body>
+        <header data-aos="fade-down">
+            <img
+                src="assets/images/escudo-juventude.png"
+                alt="Escudo Cabense"
+                class="header-logo"
+            />
+            <h1>ASSOCIAÇÃO DESPORTIVA CABENSE</h1>
+            <h1>Seletiva sub 20 2025</h1>
+            <p>Chegou a sua hora de fazer parte do nosso time!</p>
+        </header>
 
-<body>
-    <header data-aos="fade-down">
-        <img src="assets/images/escudo-juventude.png" alt="Escudo Cabense" class="header-logo">
-        <h1>ASSOCIAÇÃO DESPORTIVA CABENSE</h1>
-        <h1>Seletiva sub 20 2025</h1>
-        <p>Chegou a sua hora de fazer parte do nosso time!</p>
-    </header>
+        <section class="hero" data-aos="zoom-in">
+            <h2>Mostre seu talento para o Cabense!</h2>
+            <p>
+                Inscreva-se na nossa seletiva oficial e tenha a chance de jogar
+                pelo nosso clube em 2025!
+            </p>
+            <button
+                class="btn-inscrever"
+                onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'});"
+            >
+                Garanta Sua Vaga!
+            </button>
+        </section>
 
-    <section class="hero" data-aos="zoom-in">
-        <h2>Mostre seu talento para o Cabense!</h2>
-        <p>Inscreva-se na nossa seletiva oficial e tenha a chance de jogar pelo nosso clube em 2025!</p>
-        <button class="btn-inscrever"
-            onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'});">
-            Garanta Sua Vaga!
-        </button>
-    </section>
+        <section class="info">
+            <h2>Seletiva de Futebol</h2>
 
-    <section class="info">
-        <h2>Seletiva de Futebol</h2>
-
-        <div class="info-item">
-            <i class="fas fa-calendar-alt"></i>
-            <span><strong>Data:</strong> 25/05 - 08h</span>
-        </div>
-
-        <div class="info-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span><strong>Local:</strong> ESTÁDIO GILENO DE CARLI</span>
-        </div>
-
-        <p class="info-description">
-            A hora de mostrar seu talento chegou! Estamos iniciando a nova fase do nosso futebol de base e você pode
-            fazer parte disso.
-        </p>
-
-        <h3>O que levar:</h3>
-        <ul class="info-list">
-            <li>Documento de identificação</li>
-            <li>Calção branco</li>
-            <li>Meiões e camisa azul</li>
-            <li>Menores de idade acompanhados do responsável legal</li>
-            <li>02 sacolas plásticas</li>
-            <li>01 toalha de rosto</li>
-            <li>01 squeeze ou garrafinha de hidratação</li>
-        </ul>
-
-        <div class="info-bottom">
-            <p><strong>Público-alvo:</strong> Nascidos entre 2005 e 2009</p>
-            <p><strong>Valor da inscrição:</strong> R$ 20,00</p>
-        </div>
-    </section>
-
-    <section class="registration-section">
-        <h2 class="section-title">Como se inscrever</h2>
-
-        <div class="instruction-image">
-            <img src="assets/images/tutorial-cabense.png" alt="Passos para se inscrever" class="responsive-image">
-        </div>
-
-        <div class="copy-section">
-            <button id="copy-cnpj" class="copy-button">📋 Copiar pix CNPJ: 01.615.265/0001-67</button>
-        </div>
-
-        <div class="download-section">
-            <a href="assets/files/seletiva-cabense-formulario.pdf" download class="download-button">
-                📄 Baixar Formulário de Inscrição
-            </a>
-        </div>
-    </section>
-
-    <section class="formulario" id="formulario">
-        <h2>Inscreva-se Agora</h2>
-
-        <form id="my-form" action="/api/enviar-formulario" method="POST" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="Nome completo" required>
-            <input type="email" name="email" placeholder="Seu email" required>
-
-            <label class="custom-file-upload">
-                <span id="file-name">Escolher Arquivo</span>
-                <input type="file" name="file" id="file-input" style="display: none;">
-            </label>
-
-            <button type="submit" class="btn-inscrever">Enviar inscrição</button>
-        </form>
-
-        <div id="msg" style="margin-top: 20px;"></div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="footer-container">
-            <p class="footer-text">&copy; 2025 Associação Desportiva Cabense</p>
-
-            <div class="social-links">
-                <a href="https://facebook.com/cabenseoficial" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com/cabenseoficial" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://twitter.com/adcabense" target="_blank" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
+            <div class="info-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span><strong>Data:</strong> 25/05 - 08h</span>
             </div>
 
-            <div class="footer-logos">
-                <img src="assets/images/logo-juventude.png" alt="Juventude, Esportes e Lazer" class="footer-logo">
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span><strong>Local:</strong> ESTÁDIO GILENO DE CARLI</span>
             </div>
-        </div>
-    </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="main.js"></script>
+            <p class="info-description">
+                A hora de mostrar seu talento chegou! Estamos iniciando a nova
+                fase do nosso futebol de base e você pode fazer parte disso.
+            </p>
 
-</body>
+            <h3>O que levar:</h3>
+            <ul class="info-list">
+                <li>Documento de identificação</li>
+                <li>Calção branco</li>
+                <li>Meiões e camisa azul</li>
+                <li>Menores de idade acompanhados do responsável legal</li>
+                <li>02 sacolas plásticas</li>
+                <li>01 toalha de rosto</li>
+                <li>01 squeeze ou garrafinha de hidratação</li>
+            </ul>
 
+            <div class="info-bottom">
+                <p><strong>Público-alvo:</strong> Nascidos entre 2005 e 2009</p>
+                <p><strong>Valor da inscrição:</strong> R$ 20,00</p>
+            </div>
+        </section>
+
+        <section class="registration-section">
+            <h2 class="section-title">Como se inscrever</h2>
+
+            <div class="instruction-image">
+                <img
+                    src="assets/images/tutorial-cabense.png"
+                    alt="Passos para se inscrever"
+                    class="responsive-image"
+                />
+            </div>
+        </section>
+
+        <section class="formulario" id="formulario">
+            <h2>Inscreva-se Agora</h2>
+
+            <form
+                id="my-form"
+                action="/api/enviar-formulario"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Nome completo"
+                    required
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Seu email"
+                    required
+                />
+
+                <h2 class="form-subtitle">Pagamento</h2>
+
+                <div class="copy-section">
+                    <p>Copie o Pix para pagamento:</p>
+                    <button id="copy-cnpj" type="button" class="copy-button">
+                        📋 Copiar Pix: 01.615.265/0001-67
+                    </button>
+                </div>
+
+                <div class="file-upload-section">
+                    <label class="custom-file-upload">
+                        <span id="proof-name"
+                            >📎 Anexar Comprovante de Pagamento</span
+                        >
+                        <input
+                            type="file"
+                            name="proof"
+                            id="proof-input"
+                            style="display: none"
+                        />
+                    </label>
+                    <small class="helper-text"
+                        >Envie o comprovante do Pix (PDF, JPG ou PNG)</small
+                    >
+                </div>
+
+                <h2 class="form-subtitle">Formulário</h2>
+
+                <div class="download-section">
+                    <a
+                        href="assets/files/seletiva-cabense-formulario.pdf"
+                        download
+                        class="download-button"
+                    >
+                        📄 Baixar Formulário de Inscrição
+                    </a>
+                </div>
+
+                <div class="file-upload-section">
+                    <label class="custom-file-upload">
+                        <span id="file">📎 Anexar Formulário Preenchido</span>
+                        <input
+                            type="file"
+                            name="file"
+                            id="file-input"
+                            style="display: none"
+                        />
+                    </label>
+                    <small class="helper-text"
+                        >Envie o formulário preenchido (.pdf, .jpg, .png ou
+                        .docx)</small
+                    >
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    🚀 Enviar inscrição
+                </button>
+            </form>
+
+            <div id="msg" style="margin-top: 20px"></div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-container">
+                <p class="footer-text">
+                    &copy; 2025 Associação Desportiva Cabense
+                </p>
+
+                <div class="social-links">
+                    <a
+                        href="https://facebook.com/cabenseoficial"
+                        target="_blank"
+                        aria-label="Facebook"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a
+                        href="https://instagram.com/cabenseoficial"
+                        target="_blank"
+                        aria-label="Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a
+                        href="https://twitter.com/adcabense"
+                        target="_blank"
+                        aria-label="Twitter"
+                    >
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+
+                <div class="footer-logos">
+                    <img
+                        src="assets/images/logo-juventude.png"
+                        alt="Juventude, Esportes e Lazer"
+                        class="footer-logo"
+                    />
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="main.js"></script>
+    </body>
 </html>

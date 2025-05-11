@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const msg = document.getElementById('msg');
   const fileInput = document.getElementById('file-input');
   const fileName = document.getElementById('file-name');
-
+  const proofInput = document.getElementById('proof-input');
+  const proofName = document.getElementById('proof-name');
   const copyButton = document.getElementById('copy-cnpj');
 
   fileInput.addEventListener('change', () => {
@@ -16,11 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  proofInput.addEventListener('change', () => {
+    if (proofInput.files.length > 0) {
+      proofName.textContent = proofInput.files[0].name;
+    } else {
+      proofName.textContent = "Escolher Comprovante";
+    }
+  });
+
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    if (!fileInput.files.length) {
-      msg.innerText = '❌ Por favor, anexe um arquivo antes de enviar.';
+    if (!fileInput.files.length || !proofInput.files.length) {
+      msg.innerText = '❌ Por favor, anexe todos os arquivos antes de enviar.';
       msg.style.color = 'red';
       return;
     }
@@ -35,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         msg.innerText = '✅ Inscrição enviada com sucesso!';
         msg.style.color = 'green';
         form.reset();
-        fileName.textContent = "Escolher Arquivo";
+        fileName.textContent = "Escolher Formulário";
+        proofName.textContent = "Escolher Comprovante";
       } else {
         throw new Error('Status ' + response.status);
       }
