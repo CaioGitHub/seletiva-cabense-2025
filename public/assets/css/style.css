@@ -325,3 +325,19 @@ form {
 .btn-submit {
     animation: pulse 2s infinite;
 }
+
+.valor-inscricao {
+  background-color: #ffe600;
+  padding: 1rem;
+  margin: auto;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  color: #003366;
+  font-weight: bold;
+  max-width: 400px;
+  text-align: center;
+}
+
+.valor-inscricao p {
+  margin: 0;
+}
