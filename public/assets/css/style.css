@@ -341,3 +341,31 @@ form {
 .valor-inscricao p {
   margin: 0;
 }
+
+.pre-selecionados {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  margin: 2rem auto;
+}
+
+.pre-selecionados h2 {
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+.pre-selecionados p {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.preselecionados-img {
+  max-width: 550px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  margin: 0 auto;
+  display: block;
+}
